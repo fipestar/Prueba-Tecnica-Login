@@ -55,7 +55,7 @@ body, input, button {
 }
 
 body {
-    background-color: var(--color-contenedor);
+    background-color: var(--color-fondo);
     color: var(--color-texto);
 }
 
@@ -111,4 +111,197 @@ img {
     align-items: center;
     background-color: var(--color-contenedor);
     border-radius: 1rem;
+}
+
+.login__input {
+    background: none;
+    width: 100%;
+    padding: 1.5rem 2.5rem 1.5rem 1.25rem;
+    font-weight: var(--fuente-semi-bold);
+    border: 3px solid transparent;
+    z-index: 1;
+    transition: border-color .4s;
+}
+
+.login__input:autofill {
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+.login__label {
+    position: absolute;
+    left: 1.25rem;
+    font-weight: var(--fuente-semi-bold);
+    transition: transform .4s, font-size .4s, color .4s;
+}
+
+.login__icon {
+    position: absolute;
+    right: 1rem;
+    font-size: 1.25rem;
+    transition: color .4s;
+}
+
+.login__password {
+    cursor: pointer;
+    z-index: 10;
+}
+
+.login__button {
+    width: 100%;
+    display: inline-flex;
+    justify-content: center;
+    background-color: var(--color-primario);
+    color: var(--color-blanco);
+    font-weight: var(--fuente-semi-bold);
+    padding-block: 1.5rem;
+    border-radius: 4rem;
+    margin-block: 2rem;
+    cursor: pointer;
+    transition: background-color .4s, box-shadow .4s;
+}
+
+.login__button:hover {
+    background-color: var(--color-primario-alt);
+    box-shadow: 0 8px 24px hsla(208, 92%, 32%, .3);
+}
+
+.login__social {
+    margin-bottom: 2rem;
+}
+
+.login__social-title {
+    text-align: center;
+    font-size: var(--tamaño-pequeno);
+    font-weight: var(--fuente-semi-bold);
+    color: var(--color-titulo);
+    margin-bottom: 1rem;
+}
+
+.login__social-img {
+     width: 1rem;
+}
+
+.login__social-links {
+display: flex;
+justify-content: center;
+column-gap: 1.5rem;
+}
+
+.login__social-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--color-contenedor);
+    border-radius: 50%;
+    width: 3.5rem;
+    height: 3.5rem;
+    cursor: pointer;
+    transition: transform .4s;
+}
+
+.login__social-link:hover {
+    transform: translateY(-.25rem);
+}
+
+/**Movimiento hacia arriba del input**/
+.login__input:focus ~ .login__label {
+    transform: translateY(-1.25rem);
+    font-size: var(--tamaño-mini);
+}
+.login__input:focus {
+    padding-block: 2rem 1rem;
+}
+
+.login__input:not(:placeholder-shown).login__input:not(:focus) ~ .login__label {
+    transform: translateY(-1.25rem);
+    font-size: var(--tamaño-mini);
+}
+
+.login__input:not(:placeholder-shown).login__input:not(:focus) ~ .login__label {
+    padding-block: 2rem 1rem;
+}
+
+/**Input focus color**/
+.login__input:focus {
+    border-color: var(--color-primario);
+}
+
+.login__input:focus ~ .login__icon,
+.login__input:focus ~ .login__label{
+    color: var(--color-primario);
+}
+
+/**======Media Queries======**/
+/**Pequeños dispositivos**/
+@media screen and (max-width: 320px) {
+    .container {
+        margin-inline: 1rem;
+    }
+}
+
+/**Dispositivos medianos**/
+@media screen and (min-width: 540px) {
+    .login__area {
+        width: 380px;
+        margin-inline: auto;
+    }
+}
+
+@media screen and (min-width: 350px) and (max-height: 600px) {
+    .login{
+        height: 760px;
+    }
+    
+}
+
+/**Dispositivos Grandes**/
+@media screen and (min-width: 1150px) {
+    .container {
+        margin-inline: auto;
+    }
+
+    .login__area {
+        width: 460px;
+        margin: initial;
+    }
+
+    .login__access {
+        width: 600px;
+    }
+
+    .login__title {
+        text-align: initial;
+        margin-bottom: 3rem;
+    }
+
+    .login__button {
+        margin-bottom: 3rem;
+    }
+
+    .login__blob {
+        display: block;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
+
+    .login__img{
+        transform: translate(11rem, 2rem);
+    }
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}
+
+.ri-loader-4-line {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
 }
