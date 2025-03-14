@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap');
+
+:root {
+    /*====== Colores ========*/
+    /* Modo de color HSL (tono, saturación, luminosidad) */
+    --color-primario: hsl(208, 92%, 54%);
+    --color-primario-alt: hsl(208, 88%, 50%);
+    --color-titulo: hsl(220, 68%, 4%);
+    --color-blanco: hsl(0, 0%, 100%);
+    --color-texto: hsl(220, 15%, 66%);
+    --color-fondo: hsl(0, 0%, 100%);
+    --color-contenedor: hsl(220, 50%, 97%);
+
+    /*========== Fuente y tipografía ==========*/
+    /* .5rem = 8px | 1rem = 16px ... */
+    --fuente-principal: "Montserrat", sans-serif;
+    --tamano-grande: 1.5rem;
+    --tamano-normal: .938rem;
+    --tamano-pequeno: .813rem;
+    --tamano-mini: .688rem;
+
+    /*========== Negrita ==========*/
+    --fuente-regular: 400;
+    --fuente-bold: 500;
+    --fuente-semi-bold: 600;
+
+    /*========== index z ==========*/
+    --z-tooltip: 10;
+    --z-fixed: 100;
+
+     --fuente: "Montserrat", sans-serif;
+}
+
+     /*========== Tipografía responsive ==========*/
+        @media screen and (min-width: 1150px) {
+            :root {
+            --tamaño-grande: 3rem;
+            --tamaño-normal: 1rem;
+            --tamaño-pequeno: .875rem;
+            --tamaño-mini: .75rem;
+            }
+        }
+ 
+/*========== Base ==========*/
+
+* { /** Hacemos el reset global a todos los elementos, es muy parecido al normalize **/
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body, input, button {
+    font-family: var(--fuente);
+    font-size: var(--tamaño-normal);
+}
+
+body {
+    background-color: var(--color-contenedor);
+    color: var(--color-texto);
+}
+
+input, button {
+    border: none;
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/*==========Clases Reutilizables==========*/
+.container {
+    max-width: 1120px;
+    margin-inline: 1.5rem;
+}
+
+.grid {
+    display: grid;
+    gap: 1rem;
+}
+
+/*==========Login==========*/
+
+.login {
+     position: relative;
+     height: 100vh;
+     align-items: center;
+     overflow: hidden;
+}
+
+.login__blob {
+    display: none;
+}
+
+.login__title {
+    font-size: var(--tamaño-grande);
+    color: var(--color-titulo);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.login__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-contenedor);
+    border-radius: 1rem;
+}
